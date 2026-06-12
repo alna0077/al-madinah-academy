@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Enrollment and Placement Requests Are Open",
+    "slug": "enrollment-placement-requests-open",
+    "date": "2026-06-10",
+    "category": "Announcements",
+    "excerpt": "Families can request placement for Quran, Arabic, and Islamic Studies programs by sharing the student level, goals, and schedule needs.",
+    "image": "assets/images/classroom-tv.webp",
+    "alt": "Al-Madinah Academy classroom prepared for Quran and Arabic learning",
+    "featured": true,
+    "tags": ["Enrollment", "Placement", "Programs"],
+    "content": [
+      "Al-Madinah Quran and Sunnah Academy begins enrollment conversations with placement. This helps each student start at a level that matches their reading, recitation, Arabic, and Islamic Studies needs.",
+      "Families can share the student age, current level, goals, and schedule preference through the contact form. The academy can then recommend the best next step, in shaa Allah.",
+      "Students do not need to know exactly which class is right before contacting us. Placement is meant to make the path clear."
+    ]
+  },
+  {
+    "title": "Building Arabic Foundations for Quran Study",
+    "slug": "arabic-foundations-for-quran-study",
+    "date": "2026-05-28",
+    "category": "Programs",
+    "excerpt": "Arabic foundations help students connect letters, sounds, vocabulary, reading confidence, and Quran understanding.",
+    "image": "assets/images/arabic-magnets.webp",
+    "alt": "Arabic learning materials arranged for students",
+    "featured": false,
+    "tags": ["Arabic", "Quran", "Foundations"],
+    "content": [
+      "Arabic study supports Quran recitation by helping students recognize letters, sounds, words, and patterns with more confidence.",
+      "For younger students and non-Arabic speakers, the early path focuses on careful pronunciation, steady reading practice, and vocabulary that connects learning to meaning.",
+      "The goal is not rushed memorization. The goal is a clear foundation that makes future Quran and Islamic Studies learning easier."
+    ]
+  },
+  {
+    "title": "Why Review Is Part of Every Strong Learning Routine",
+    "slug": "review-in-every-learning-routine",
+    "date": "2026-05-14",
+    "category": "Student Updates",
+    "excerpt": "Consistent review, correction, and repetition help students keep progress steady after each lesson.",
+    "image": "assets/images/quran-whiteboard.webp",
+    "alt": "Quran and whiteboard lesson setup at the academy",
+    "featured": false,
+    "tags": ["Students", "Review", "Progress"],
+    "content": [
+      "Students often make the strongest progress when lessons include both new learning and regular review. Review protects what has already been learned and gives teachers a chance to correct small mistakes early.",
+      "In Quran and Arabic learning, repetition is not a weakness. It is a practical part of fluency, confidence, and adab with knowledge.",
+      "Families can support students by keeping practice short, consistent, and calm between lessons."
+    ]
+  }
+]

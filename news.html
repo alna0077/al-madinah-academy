@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Announcements | Al-Madinah Quran and Sunnah Academy</title>
+  <meta name="description" content="Read Al-Madinah Quran and Sunnah Academy news, announcements, events, program updates, and student learning notes.">
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="news">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="site-header" data-include="partials/header.html"></div>
+  <main id="main-content" tabindex="-1">
+
+    <section class="page-hero" style="--page-image: url('../images/books-dessert.webp')">
+      <div class="container">
+        <p class="eyebrow">News & Announcements</p>
+        <h1>Academy updates, events, and learning notes.</h1>
+        <p class="lead">Follow announcements, program updates, student learning notes, and important academy reminders.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container posts-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured</p>
+          <h2>Latest from Al-Madinah.</h2>
+        </div>
+        <div data-featured-post></div>
+      </div>
+    </section>
+
+    <section class="section paper compact">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Browse</p>
+          <h2>All updates.</h2>
+        </div>
+        <div class="post-filters" data-post-filters aria-label="Filter posts by category"></div>
+        <div class="post-grid" data-posts-list></div>
+        <div class="empty-state" data-posts-empty hidden>
+          <h3>No posts found.</h3>
+          <p>Try another category or check back soon for new academy updates.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer" data-include="partials/footer.html"></div>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/posts.js"></script>
+</body>
+</html>

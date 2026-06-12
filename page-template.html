@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Edit for each new page -->
+  <title>Page Title | Al-Madinah Quran and Sunnah Academy</title>
+  <meta name="description" content="Write a unique page description for this page.">
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!-- Edit data-page so active navigation can be set when a matching nav item exists. -->
+<body data-page="new-page">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="site-header" data-include="partials/header.html"></div>
+  <main id="main-content" tabindex="-1">
+
+    <!-- Page hero: edit title, text, eyebrow, and optional image. Use assets/images/... with ../images/... inside this CSS variable. -->
+    <section class="page-hero" style="--page-image: url('../images/classroom-tv.webp')">
+      <div class="container">
+        <p class="eyebrow">Page Eyebrow</p>
+        <h1>Page hero title goes here.</h1>
+        <p class="lead">Short page introduction goes here. Keep this focused and useful.</p>
+      </div>
+    </section>
+
+    <!-- Intro section -->
+    <section class="section">
+      <div class="container split wide-left">
+        <div class="reveal">
+          <p class="eyebrow">Intro</p>
+          <h2>Intro heading for the page.</h2>
+          <p class="lead">Use this area for the main page explanation or summary.</p>
+        </div>
+        <div class="image-frame reveal">
+          <img src="assets/images/quran-whiteboard.webp" alt="Describe this page image clearly">
+        </div>
+      </div>
+    </section>
+
+    <!-- Standard content section -->
+    <section class="section paper compact">
+      <div class="container narrow-content reveal">
+        <p class="eyebrow">Details</p>
+        <h2>Standard content section.</h2>
+        <p>Add page-specific text here. Keep the shared header and footer outside the main content.</p>
+      </div>
+    </section>
+
+    <!-- Card grid section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Highlights</p>
+          <h2>Card grid section.</h2>
+        </div>
+        <div class="card-grid three-grid">
+          <article class="card reveal"><h3>Card title</h3><p>Card text goes here.</p></article>
+          <article class="card reveal"><h3>Card title</h3><p>Card text goes here.</p></article>
+          <article class="card reveal"><h3>Card title</h3><p>Card text goes here.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA section -->
+    <section class="section quote-band compact">
+      <div class="container quote-inner">
+        <div class="quote-mark" aria-hidden="true">علم</div>
+        <div class="reveal">
+          <p class="eyebrow">Next Step</p>
+          <h2>Call-to-action heading.</h2>
+          <p class="lead">Invite the visitor to contact the academy or explore another page.</p>
+          <div class="button-row"><a class="btn btn-gold" href="contact.html">Contact the Academy</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer" data-include="partials/footer.html"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
