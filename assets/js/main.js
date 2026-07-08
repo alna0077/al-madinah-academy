@@ -1,6 +1,6 @@
 const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/share/1Dt9H3XUbj/?mibextid=wwXIfr",
-  instagram: "#",
+  facebook: "https://www.facebook.com/share/1EFWUCXj5z/?mibextid=wwXIfr",
+  instagram: "https://www.instagram.com/almadinahacademy.ca",
   whatsapp: "https://wa.me/16138084866"
 };
 
@@ -16,6 +16,10 @@ const CONTACT_EMAIL = "almadinahacademy.ca@gmail.com";
 const CONTACT_FORM_ENDPOINT = "";
 const CONTACT_FORM_ENCODING = "form-data"; // "form-data" or "urlencoded"
 
+const stripLiveServerInjection = (html) => (
+  html.replace(/<!-- Code injected by live-server -->\s*<script>[\s\S]*?<\/script>/g, "")
+);
+
 const loadPartials = async () => {
   const includeTargets = [...document.querySelectorAll("[data-include]")];
   await Promise.all(includeTargets.map(async (target) => {
@@ -25,7 +29,7 @@ const loadPartials = async () => {
     try {
       const response = await fetch(partialUrl, { cache: "no-cache" });
       if (!response.ok) throw new Error(`Unable to load ${partialUrl}`);
-      target.outerHTML = await response.text();
+      target.outerHTML = stripLiveServerInjection(await response.text());
     } catch (error) {
       console.error(error);
       target.setAttribute("data-include-error", partialUrl);
