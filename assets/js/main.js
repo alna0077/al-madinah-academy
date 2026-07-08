@@ -9,11 +9,8 @@ const CONTACT_PHONE = {
   href: "tel:+16138084866"
 };
 
-const CONTACT_EMAIL = "almadinahacademy.ca@gmail.com";
-
-// Add a Formspree, Basin, Netlify Forms, or custom endpoint here for production submissions.
-// Leave blank to use the static mailto fallback. Use "urlencoded" for Netlify Forms.
-const CONTACT_FORM_ENDPOINT = "";
+// Hostinger PHP endpoint for production form submissions.
+const CONTACT_FORM_ENDPOINT = "contact.php";
 const CONTACT_FORM_ENCODING = "form-data"; // "form-data" or "urlencoded"
 
 const stripLiveServerInjection = (html) => (
@@ -54,14 +51,6 @@ const applyContactDetails = () => {
 
   document.querySelectorAll("[data-phone-link]").forEach((link) => {
     link.href = CONTACT_PHONE.href;
-  });
-
-  document.querySelectorAll("[data-email-display]").forEach((el) => {
-    el.textContent = CONTACT_EMAIL;
-  });
-
-  document.querySelectorAll("[data-email-link]").forEach((link) => {
-    link.href = `mailto:${CONTACT_EMAIL}`;
   });
 };
 
@@ -212,28 +201,6 @@ const validateEnrollmentForm = (form) => {
   return { isValid: !firstInvalid, firstInvalid };
 };
 
-const buildMailtoUrl = (data) => {
-  const subject = encodeURIComponent("Enrollment request - Al-Madinah Academy");
-  const body = encodeURIComponent([
-    "Assalamu alaykum,",
-    "",
-    "I would like to ask about enrollment at Al-Madinah Quran and Sunnah Academy.",
-    "",
-    `Name: ${data.get("name") || ""}`,
-    `Email: ${data.get("email") || ""}`,
-    `Phone / WhatsApp: ${data.get("phone") || ""}`,
-    `Student age: ${data.get("age") || ""}`,
-    `Program interest: ${data.get("program") || ""}`,
-    `Current level: ${data.get("level") || ""}`,
-    `Schedule preference: ${data.get("preference") || ""}`,
-    "",
-    "Message:",
-    data.get("message") || ""
-  ].join("\n"));
-
-  return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-};
-
 const setSubmitLoading = (submitButton, isLoading) => {
   if (!submitButton) return;
   if (!submitButton.dataset.originalText) submitButton.dataset.originalText = submitButton.textContent;
@@ -242,9 +209,9 @@ const setSubmitLoading = (submitButton, isLoading) => {
   submitButton.textContent = isLoading ? "Sending..." : submitButton.dataset.originalText;
 };
 
-const submitToEndpoint = async (data) => {
+const submitToEndpoint = async (data, endpoint = CONTACT_FORM_ENDPOINT) => {
   const isUrlEncoded = CONTACT_FORM_ENCODING === "urlencoded";
-  const response = await fetch(CONTACT_FORM_ENDPOINT, {
+  const response = await fetch(endpoint, {
     method: "POST",
     headers: isUrlEncoded
       ? { Accept: "application/json", "Content-Type": "application/x-www-form-urlencoded" }
@@ -252,16 +219,22 @@ const submitToEndpoint = async (data) => {
     body: isUrlEncoded ? new URLSearchParams(data).toString() : data
   });
 
-  if (!response.ok) {
-    let message = "Submission failed";
-    try {
-      const result = await response.json();
-      message = result.error || result.message || message;
-    } catch (error) {
-      // Keep the generic message when the provider returns non-JSON errors.
-    }
-    throw new Error(message);
+  let result = null;
+  try {
+    result = await response.json();
+  } catch (error) {
+    result = null;
   }
+
+  if (!response.ok) {
+    throw new Error(result?.error || result?.message || "Submission failed");
+  }
+
+  if (result?.success !== true) {
+    throw new Error(result?.error || result?.message || "Submission failed");
+  }
+
+  return result;
 };
 
 const initEnrollmentForm = () => {
@@ -304,17 +277,12 @@ const initEnrollmentForm = () => {
     setSubmitLoading(submitButton, true);
 
     try {
-      if (CONTACT_FORM_ENDPOINT) {
-        await submitToEndpoint(data);
-        setFormStatus(formStatus, "success", "Thank you. Your request has been sent and we will follow up soon, in shaa Allah.");
-        enrollmentForm.reset();
-        enrollmentForm.querySelectorAll("[aria-invalid]").forEach((field) => markField(field));
-      } else {
-        window.location.href = buildMailtoUrl(data);
-        setFormStatus(formStatus, "success", `Your email app should open with the enrollment request prepared. If it does not open, please email ${CONTACT_EMAIL} directly.`);
-      }
+      await submitToEndpoint(data, enrollmentForm.getAttribute("action") || CONTACT_FORM_ENDPOINT);
+      setFormStatus(formStatus, "success", "Thank you. Your request has been sent and we will follow up soon, in shaa Allah.");
+      enrollmentForm.reset();
+      enrollmentForm.querySelectorAll("[aria-invalid]").forEach((field) => markField(field));
     } catch (error) {
-      setFormStatus(formStatus, "error", `Something went wrong while sending. ${error.message || `Please email ${CONTACT_EMAIL} or try again shortly.`}`);
+      setFormStatus(formStatus, "error", `Something went wrong while sending. ${error.message || "Please try again shortly."}`);
     } finally {
       setSubmitLoading(submitButton, false);
     }
