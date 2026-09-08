@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News & Announcements | Al-Madinah Quran and Sunnah Academy</title>
+  <title>News & Updates | Al-Madinah Quran and Sunnah Academy</title>
   <meta name="description" content="Read Al-Madinah Quran and Sunnah Academy news, announcements, events, program updates, and student learning notes.">
   <link rel="icon" type="image/png" href="assets/logos/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,36 +18,64 @@
   <div id="site-header" data-include="partials/header.html"></div>
   <main id="main-content" tabindex="-1">
 
-    <section class="page-hero" style="--page-image: url('assets/images/books-dessert.webp')">
-      <div class="container">
-        <p class="eyebrow">News & Announcements</p>
-        <h1>Academy updates, events, and learning notes.</h1>
-        <p class="lead">Follow announcements, program updates, student learning notes, and important academy reminders.</p>
+    <section class="news-intro" aria-labelledby="news-page-title">
+      <div class="container news-intro-layout">
+        <div>
+          <p class="eyebrow">News &amp; Updates</p>
+          <h1 id="news-page-title">What is happening at Al-Madinah.</h1>
+        </div>
+        <p class="lead">Academy announcements, upcoming learning opportunities, program updates, and practical notes for students and families.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container posts-layout">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Featured</p>
-          <h2>Latest from Al-Madinah.</h2>
-        </div>
+    <section class="section news-featured-section" aria-labelledby="featured-update-title">
+      <div class="container">
+        <header class="news-section-heading reveal">
+          <p class="eyebrow">Featured Update</p>
+          <h2 id="featured-update-title">From the academy.</h2>
+        </header>
         <div data-featured-post></div>
       </div>
     </section>
 
-    <section class="section paper compact">
+    <section class="section compact news-upcoming-section" aria-labelledby="upcoming-title" data-upcoming-section>
       <div class="container">
-        <div class="section-heading center reveal">
-          <p class="eyebrow">Browse</p>
-          <h2>All updates.</h2>
-        </div>
+        <header class="news-section-heading news-section-heading-split reveal">
+          <div>
+            <p class="eyebrow">Plan Ahead</p>
+            <h2 id="upcoming-title">Upcoming at Al-Madinah.</h2>
+          </div>
+          <p>Classes, programs, workshops, and special learning opportunities currently on the academy calendar.</p>
+        </header>
+        <div class="upcoming-list" data-upcoming-list></div>
+      </div>
+    </section>
+
+    <section class="section compact news-latest-section" aria-labelledby="latest-updates-title">
+      <div class="container">
+        <header class="news-section-heading news-section-heading-split reveal">
+          <div>
+            <p class="eyebrow">Latest Posts</p>
+            <h2 id="latest-updates-title">Announcements and learning notes.</h2>
+          </div>
+          <p>Browse recent academy notices, program guidance, and reflections on steady learning.</p>
+        </header>
         <div class="post-filters" data-post-filters aria-label="Filter posts by category"></div>
-        <div class="post-grid" data-posts-list></div>
+        <div class="post-feed" data-posts-list></div>
         <div class="empty-state" data-posts-empty hidden>
           <h3>No posts found.</h3>
           <p>Try another category or check back soon for new academy updates.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="news-closing" aria-labelledby="news-closing-title">
+      <div class="container news-closing-layout">
+        <div>
+          <p class="eyebrow">Learning at Al-Madinah</p>
+          <h2 id="news-closing-title">Looking for the right class or program?</h2>
+        </div>
+        <a class="btn btn-primary" href="contact.html">Request Placement</a>
       </div>
     </section>
 
