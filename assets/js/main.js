@@ -68,11 +68,14 @@ const setActiveNavigation = () => {
 };
 
 const initThemeControl = () => {
-  const select = document.querySelector("[data-theme-select]");
-  if (!select) return;
+  const control = document.querySelector(".theme-control");
+  const buttons = [...document.querySelectorAll("[data-theme-option]")];
+  const cycleButton = document.querySelector("[data-theme-cycle]");
+  if (!control || !buttons.length) return;
 
   const storageKey = "almadinah-theme";
   const systemPreference = window.matchMedia("(prefers-color-scheme: dark)");
+  const themeOrder = ["system", "light", "dark"];
   const getSavedPreference = () => {
     try {
       const saved = localStorage.getItem(storageKey);
@@ -86,24 +89,53 @@ const initThemeControl = () => {
     document.documentElement.dataset.theme = activeTheme;
     document.documentElement.dataset.themePreference = preference;
     document.documentElement.style.colorScheme = activeTheme;
+    buttons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.themeOption === preference));
+    });
+    if (cycleButton) {
+      const nextPreference = themeOrder[(themeOrder.indexOf(preference) + 1) % themeOrder.length];
+      const currentLabel = preference.charAt(0).toUpperCase() + preference.slice(1);
+      const nextLabel = nextPreference.charAt(0).toUpperCase() + nextPreference.slice(1);
+      cycleButton.dataset.themeCycleState = preference;
+      cycleButton.setAttribute("aria-label", `Current theme: ${currentLabel}. Switch to ${nextLabel} theme`);
+      cycleButton.setAttribute("title", `Theme: ${currentLabel}`);
+      cycleButton.querySelectorAll("[data-theme-cycle-icon]").forEach((icon) => {
+        if (icon.dataset.themeCycleIcon === preference) icon.removeAttribute("hidden");
+        else icon.setAttribute("hidden", "");
+      });
+    }
   };
 
-  select.value = getSavedPreference();
-  applyTheme(select.value);
+  applyTheme(getSavedPreference());
 
-  select.addEventListener("change", () => {
-    const preference = select.value;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const preference = button.dataset.themeOption;
+      if (!preference) return;
+      try {
+        if (preference === "system") localStorage.removeItem(storageKey);
+        else localStorage.setItem(storageKey, preference);
+      } catch (error) {
+        // The selected theme still applies for the current page if storage is unavailable.
+      }
+      applyTheme(preference);
+    });
+  });
+
+  cycleButton?.addEventListener("click", () => {
+    const currentPreference = document.documentElement.dataset.themePreference || "system";
+    const nextPreference = themeOrder[(themeOrder.indexOf(currentPreference) + 1) % themeOrder.length];
     try {
-      if (preference === "system") localStorage.removeItem(storageKey);
-      else localStorage.setItem(storageKey, preference);
+      if (nextPreference === "system") localStorage.removeItem(storageKey);
+      else localStorage.setItem(storageKey, nextPreference);
     } catch (error) {
       // The selected theme still applies for the current page if storage is unavailable.
     }
-    applyTheme(preference);
+    applyTheme(nextPreference);
   });
 
   systemPreference.addEventListener?.("change", () => {
-    if (select.value === "system") applyTheme("system");
+    if (document.documentElement.dataset.themePreference === "system") applyTheme("system");
   });
 };
 

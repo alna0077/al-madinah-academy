@@ -4,9 +4,7 @@
     <a class="brand" href="index.html" aria-label="Al-Madinah Academy home">
       <img src="assets/logos/logo-header.png" alt="Al-Madinah Quran and Sunnah Academy logo" width="1448" height="409" decoding="async" fetchpriority="high">
     </a>
-    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+
     <div class="header-panel" id="site-navigation">
       <nav class="main-nav" aria-label="Main navigation">
         <a href="programs.html" data-nav-page="programs">Programs</a>
@@ -16,17 +14,33 @@
         <a href="contact.html" data-nav-page="contact">Contact</a>
       </nav>
       <div class="header-actions header-launch-actions">
-        <label class="theme-control">
-          <span class="visually-hidden">Colour theme</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
-          <select data-theme-select aria-label="Colour theme">
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-        </label>
+        <div class="theme-control" role="group" aria-label="Colour theme">
+          <button class="theme-segment" type="button" data-theme-option="system" aria-pressed="true" aria-label="Use system colour theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+            <span class="theme-label">System</span>
+          </button>
+          <button class="theme-segment" type="button" data-theme-option="light" aria-pressed="false" aria-label="Use light colour theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+            <span class="theme-label">Light</span>
+          </button>
+          <button class="theme-segment" type="button" data-theme-option="dark" aria-pressed="false" aria-label="Use dark colour theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.4 15.1A8.5 8.5 0 0 1 8.9 3.6 8.5 8.5 0 1 0 20.4 15.1Z"></path></svg>
+            <span class="theme-label">Dark</span>
+          </button>
+        </div>
         <a class="btn btn-primary header-cta header-contact" href="contact.html">Request Placement</a>
       </div>
+    </div>
+
+    <div class="header-utilities">
+      <button class="theme-cycle" type="button" data-theme-cycle aria-label="Cycle colour theme">
+        <svg data-theme-cycle-icon="system" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+        <svg data-theme-cycle-icon="light" viewBox="0 0 24 24" aria-hidden="true" focusable="false" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+        <svg data-theme-cycle-icon="dark" viewBox="0 0 24 24" aria-hidden="true" focusable="false" hidden><path d="M20.4 15.1A8.5 8.5 0 0 1 8.9 3.6 8.5 8.5 0 1 0 20.4 15.1Z"></path></svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
