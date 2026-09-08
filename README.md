@@ -23,3 +23,11 @@ For production, set `CONTACT_FORM_ENDPOINT` in `assets/js/main.js` to a Formspre
 
 ## Uploading
 Upload all files and folders together to your hosting folder, usually `public_html`.
+
+## Production security
+
+- Serve the site over HTTPS. `.htaccess` redirects HTTP requests and adds browser security headers when Apache modules are enabled.
+- Keep `.htaccess` deployed; it disables directory listings and blocks common private/configuration files and the archive backup.
+- Keep the PHP endpoint on the same origin as the form. It rejects cross-origin submissions, oversized requests, unexpected select values, and non-POST requests.
+- Configure Hostinger or an email provider with authenticated SMTP/API delivery and server-side rate limiting before relying on the contact form for public traffic. PHP `mail()` is retained as the hosting-compatible fallback, but it does not provide application-level abuse protection.
+- Never place credentials, API keys, backups, or server configuration files in the public web root.

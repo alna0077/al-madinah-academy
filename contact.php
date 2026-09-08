@@ -4,6 +4,16 @@ declare(strict_types=1);
 const RECIPIENT_EMAIL = 'ALMADINAHACADEMY.CA@GMAIL.COM';
 const SUCCESS_MESSAGE = 'Thank you. Your request has been sent and we will follow up soon, in shaa Allah.';
 const GENERIC_ERROR = 'We could not send your request right now. Please try again shortly.';
+const MAX_REQUEST_BYTES = 12000;
+
+function set_security_headers(): void
+{
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: DENY');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: camera=(), geolocation=(), microphone=()');
+    header("Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:");
+}
 
 function wants_json_response(): bool
 {
@@ -95,8 +105,45 @@ function safe_server_from_email(): string
     return filter_var($fromEmail, FILTER_VALIDATE_EMAIL) ? $fromEmail : RECIPIENT_EMAIL;
 }
 
+function request_is_same_origin(): bool
+{
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+    $referer = $_SERVER['HTTP_REFERER'] ?? '';
+    $requestHost = $_SERVER['HTTP_HOST'] ?? '';
+
+    foreach ([$origin, $referer] as $source) {
+        if ($source === '') {
+            continue;
+        }
+
+        $sourceHost = parse_url($source, PHP_URL_HOST);
+        if (!is_string($sourceHost) || strcasecmp($sourceHost, preg_replace('/:\d+$/', '', $requestHost)) !== 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function is_allowed_value(string $value, array $allowedValues): bool
+{
+    return $value === '' || in_array($value, $allowedValues, true);
+}
+
+set_security_headers();
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(405, false, 'Please submit the contact form from the contact page.');
+    exit;
+}
+
+if ((int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > MAX_REQUEST_BYTES) {
+    respond(413, false, 'Your request is too large. Please shorten the message and try again.');
+    exit;
+}
+
+if (!request_is_same_origin()) {
+    respond(403, false, GENERIC_ERROR);
     exit;
 }
 
@@ -130,6 +177,21 @@ if (strlen($message) < 10) {
     exit;
 }
 
+if (!is_allowed_value($program, ['Arabic Language', 'Quran Recitation', 'Little Quran Learners', 'Islamic Studies', 'Private / Small Group', 'Not sure yet'])) {
+    respond(422, false, 'Please select a valid program.');
+    exit;
+}
+
+if (!is_allowed_value($level, ['Beginner', 'Can read Arabic slowly', 'Can read Quran but needs correction', 'Intermediate', 'Not sure'])) {
+    respond(422, false, 'Please select a valid current level.');
+    exit;
+}
+
+if (!is_allowed_value($preference, ['Weekdays', 'Weekends', 'In-person', 'Online', 'Flexible'])) {
+    respond(422, false, 'Please select a valid schedule preference.');
+    exit;
+}
+
 $submittedAt = date('Y-m-d H:i:s T');
 $subject = 'New enrollment request - Al-Madinah Academy';
 $bodyLines = [
@@ -153,7 +215,7 @@ $headers = [
     'Content-Type: text/plain; charset=UTF-8',
     'From: Al-Madinah Website <' . safe_server_from_email() . '>',
     'Reply-To: ' . $email,
-    'X-Mailer: PHP/' . phpversion(),
+    'X-Mailer: Al-Madinah Academy website',
 ];
 
 $sent = mail(RECIPIENT_EMAIL, $subject, implode("\n", $bodyLines), implode("\r\n", $headers));
