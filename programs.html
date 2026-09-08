@@ -8,142 +8,175 @@
   <link rel="icon" type="image/png" href="assets/logos/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-page="programs">
 
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header" data-include="partials/header.html"></div>
-  <main id="main-content" tabindex="-1">
-
-    <section class="page-hero" style="--page-image: url('../images/whiteboard-recitation.webp')">
-      <div class="container">
-        <p class="eyebrow">Programs</p>
-        <h1>Programs that meet the student where they are.</h1>
-        <p class="lead">Arabic, Quran recitation, children’s learning, Islamic Studies, and private support are organized into one clear academy pathway.</p>
+  <main id="main-content" tabindex="-1" class="programs-v2">
+    <section class="inner-hero programs-hero" aria-labelledby="programs-title">
+      <div class="container inner-hero-grid">
+        <div class="inner-hero-copy reveal">
+          <p class="eyebrow">Programs</p>
+          <h1 id="programs-title">A clear starting point. A structured path forward.</h1>
+          <p class="lead">Qur’an recitation, Arabic, children’s learning, and Islamic Studies are taught as distinct programs within one coherent academy experience.</p>
+        </div>
+        <figure class="inner-hero-media reveal">
+          <img src="assets/images/whiteboard-recitation.webp" alt="Whiteboard prepared for a Qur’an recitation lesson" width="1050" height="1400" decoding="async" fetchpriority="high">
+        </figure>
       </div>
     </section>
 
-    <section class="section">
+    <nav class="program-menu-v2" aria-label="Program sections">
       <div class="container">
-        <div class="program-menu" aria-label="Program sections">
-          <a href="#arabic">Arabic</a>
-          <a href="#recitation">Recitation</a>
-          <a href="#kids">Kids</a>
-          <a href="#islamic-studies">Islamic Studies</a>
-          <a href="#private">Private Support</a>
+        <a href="#recitation">Qur’an Recitation</a>
+        <a href="#arabic">Arabic Language</a>
+        <a href="#kids">Little Qur’an Learners</a>
+        <a href="#islamic-studies">Islamic Studies</a>
+        <a href="#private">Private Support</a>
+      </div>
+    </nav>
+
+    <section class="section program-editorial program-editorial-recitation" id="recitation" aria-labelledby="recitation-title">
+      <div class="container program-editorial-grid">
+        <div class="program-number reveal" aria-hidden="true">01</div>
+        <div class="program-copy reveal">
+          <p class="eyebrow">Qur’an Recitation</p>
+          <h2 id="recitation-title">Careful correction from first sounds to fluent recitation.</h2>
+          <p class="lead">For non-Arabic speakers and learners who want stronger pronunciation, accuracy, fluency, and Tajweed foundations.</p>
+          <div class="program-facts">
+            <p><strong>Students learn</strong> Makharij, similar sounds, harakat, sukoon, madd, tanween, shaddah, stopping, short surahs, and gradual Tajweed foundations.</p>
+            <p><strong>Learning approach</strong> Guided recitation, patient correction, repetition, review, and progression at the student’s actual level.</p>
+            <p><strong>Advanced direction</strong> Memorization and Qira’at may form part of an appropriate learning path according to level and teacher assessment.</p>
+          </div>
+          <a class="btn-link" href="#recitation-detail">See the recitation pathway</a>
         </div>
-        <div class="program-grid">
-          <article class="program-card featured reveal" id="arabic">
-            <div class="icon-badge">ع</div>
-            <h3>Arabic Language Program</h3>
-            <p>For students who want to read, write, speak, and understand Arabic step by step, with language goals connected to Quran and Islamic learning.</p>
-            <a class="btn-link" href="#arabic-detail">Program details</a>
-          </article>
-          <article class="program-card reveal" id="recitation">
-            <div class="icon-badge">ق</div>
-            <h3>Quran Recitation for Non-Arabic Speakers</h3>
-            <p>Pronunciation, letter exits, harakat, madd, fluency, and Tajweed foundations taught through guided recitation correction.</p>
-            <a class="btn-link" href="#recitation-detail">Program details</a>
-          </article>
-          <article class="program-card reveal" id="kids">
-            <div class="icon-badge">أ</div>
-            <h3>Little Quran Learners</h3>
-            <p>A gentle children’s program for Arabic letters, short surahs, Islamic manners, repetition, and parent communication.</p>
-            <a class="btn-link" href="#kids-detail">Program details</a>
-          </article>
-          <article class="program-card reveal" id="islamic-studies">
-            <div class="icon-badge">★</div>
-            <h3>Islamic Studies</h3>
-            <p>Essential learning in Tawheed, belief, worship, manners, and daily practice taught with clarity and appropriate pacing.</p>
-            <a class="btn-link" href="contact.html">Ask about classes</a>
-          </article>
-          <article class="program-card reveal" id="private">
-            <div class="icon-badge">ف</div>
-            <h3>Private and Small Group Classes</h3>
-            <p>Focused support for students who need flexible scheduling, assessment, recitation correction, or a personalized learning plan.</p>
+        <figure class="program-media reveal">
+          <img src="assets/images/whiteboard-close.webp" alt="Close view of Qur’an recitation rules on a whiteboard" width="1050" height="1400" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section surface-section program-editorial" id="arabic" aria-labelledby="arabic-title">
+      <div class="container program-editorial-grid program-editorial-grid-reverse">
+        <div class="program-number reveal" aria-hidden="true">02</div>
+        <div class="program-copy reveal">
+          <p class="eyebrow">Arabic Language</p>
+          <h2 id="arabic-title">Arabic with purpose.</h2>
+          <p class="lead">A major academy pathway for children and adults who want to read, write, speak, and understand Arabic step by step.</p>
+          <div class="program-facts">
+            <p><strong>Foundations</strong> Letters, sounds, joining letters, reading fluency, writing practice, and vocabulary.</p>
+            <p><strong>Progression</strong> Students move from words to sentences and build confidence with Qur’anic and Islamic vocabulary.</p>
+            <p><strong>Purpose</strong> Language goals remain connected to Qur’an recitation, comprehension, and Islamic learning materials.</p>
+          </div>
+          <a class="btn-link" href="#arabic-detail">See Arabic outcomes</a>
+        </div>
+        <figure class="program-media program-media-landscape reveal">
+          <img src="assets/images/arabic-magnets.webp" alt="Arabic letters and books used for language foundations" width="1050" height="1400" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section program-kids" id="kids" aria-labelledby="kids-title">
+      <div class="container kids-layout">
+        <div class="kids-copy reveal">
+          <p class="eyebrow">Little Qur’an Learners</p>
+          <h2 id="kids-title">Gentle structure for young learners.</h2>
+          <p class="lead">A child-focused program combining Arabic letters, short surahs, repetition, memorization support, and Islamic manners.</p>
+          <p>Children learn with encouragement, clear classroom expectations, age-appropriate practice, and practical communication with parents. The pace supports confidence without losing the importance of correction and consistency.</p>
+          <a class="btn-link" href="#kids-detail">See the children’s learning approach</a>
+        </div>
+        <figure class="kids-media reveal">
+          <img src="assets/images/arabic-puzzle.webp" alt="Arabic puzzle materials for young learners" width="1400" height="1050" loading="lazy" decoding="async">
+        </figure>
+        <ul class="kids-notes reveal" aria-label="Little Qur’an Learners topics">
+          <li>Arabic letters &amp; sounds</li>
+          <li>Early reading</li>
+          <li>Short surahs</li>
+          <li>Adab &amp; listening</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section surface-section islamic-studies-feature" id="islamic-studies" aria-labelledby="islamic-studies-title">
+      <div class="container editorial-split">
+        <div class="editorial-heading reveal">
+          <p class="eyebrow">Islamic Studies</p>
+          <h2 id="islamic-studies-title">Sound foundations connected to daily practice.</h2>
+        </div>
+        <div class="editorial-copy reveal">
+          <p class="lead">Essential learning in Tawheed, belief, worship, manners, and daily conduct, taught with clarity and appropriate pacing.</p>
+          <p>The program gives students an organized foundation rather than disconnected information. Lessons emphasize understanding, reliable teaching, review, and applying knowledge through worship and conduct.</p>
+          <p class="availability-note"><strong>Format:</strong> Online and in-person options depend on level, program demand, and teacher availability.</p>
+          <a class="btn-link" href="contact.html">Ask about Islamic Studies classes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section supporting-programs" id="private" aria-labelledby="supporting-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Additional learning options</p>
+          <h2 id="supporting-title">Support shaped around fit and availability.</h2>
+        </div>
+        <div class="supporting-program-list">
+          <article class="supporting-program reveal">
+            <div><span>Private / small group</span><h3>Focused learning support</h3></div>
+            <p>For students who need flexible scheduling, assessment, recitation correction, or a personalized learning plan.</p>
             <a class="btn-link" href="contact.html">Request placement</a>
           </article>
-          <article class="program-card reveal">
-            <div class="icon-badge">ن</div>
-            <h3>Sisters and Family Learning</h3>
+          <article class="supporting-program reveal">
+            <div><span>Sisters / families</span><h3>Learning options for specific groups</h3></div>
             <p>Separate options may be available depending on teacher schedule, level, program demand, and the student’s goals.</p>
-            <a class="btn-link" href="contact.html">Contact us</a>
+            <a class="btn-link" href="contact.html">Ask about availability</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section paper" id="arabic-detail">
-      <div class="container program-detail">
-        <div class="detail-grid">
-          <div class="detail-panel reveal">
-            <p class="eyebrow">Arabic Outcomes</p>
-            <h2>Arabic with purpose.</h2>
-            <p class="lead">Students build usable Arabic skills that support Quran recitation, Islamic vocabulary, and confidence with learning materials.</p>
-          </div>
-          <div class="outcome-grid">
-            <div class="check-item reveal"><span class="check">✓</span> Letters, sounds, and joining letters</div>
-            <div class="check-item reveal"><span class="check">✓</span> Reading fluency with words and sentences</div>
-            <div class="check-item reveal"><span class="check">✓</span> Writing practice and vocabulary building</div>
-            <div class="check-item reveal"><span class="check">✓</span> Qurani and Islamic vocabulary support</div>
-          </div>
-        </div>
+    <section class="section anchor-detail" id="recitation-detail" aria-labelledby="recitation-detail-title">
+      <div class="container detail-ribbon reveal">
+        <p class="eyebrow">Recitation pathway</p>
+        <h2 id="recitation-detail-title">Listen. Correct. Repeat. Review.</h2>
+        <p>Teacher feedback turns recitation practice into calm, repeatable progress—from accurate letters and vowels toward stronger fluency and Tajweed.</p>
       </div>
     </section>
 
-    <section class="section" id="recitation-detail">
-      <div class="container split wide-right">
-        <div class="image-frame reveal">
-          <img src="assets/images/whiteboard-close.webp" alt="Whiteboard showing Quran recitation rules">
-          <div class="arch-note"><strong>ورتل</strong><span>Recite with care</span></div>
-        </div>
+    <section class="section anchor-detail surface-section" id="arabic-detail" aria-labelledby="arabic-detail-title">
+      <div class="container detail-ribbon reveal">
+        <p class="eyebrow">Arabic outcomes</p>
+        <h2 id="arabic-detail-title">Read with confidence. Build toward understanding.</h2>
+        <p>Students build usable skills in sounds, reading, writing, vocabulary, and sentences, with language learning connected to the Qur’an and Islamic study.</p>
+      </div>
+    </section>
+
+    <section class="section anchor-detail" id="kids-detail" aria-labelledby="kids-detail-title">
+      <div class="container detail-ribbon reveal">
+        <p class="eyebrow">Children’s pathway</p>
+        <h2 id="kids-detail-title">Repetition, encouragement, and a clear next step.</h2>
+        <p>Lessons combine early Arabic, short-surah practice, Islamic manners, and gentle accountability suited to the child’s age and starting point.</p>
+      </div>
+    </section>
+
+    <section class="section placement-process" aria-labelledby="placement-title">
+      <div class="container placement-process-grid">
         <div class="reveal">
-          <p class="eyebrow">Recitation Path</p>
-          <h2>From sounds to confident recitation.</h2>
-          <p class="lead">Many learners love the Quran but struggle with pronunciation, similar sounds, vowels, stopping, and fluency. This path turns correction into calm, repeatable progress.</p>
-          <div class="feature-list">
-            <div><span class="check">✓</span> Makharij and common pronunciation corrections</div>
-            <div><span class="check">✓</span> Harakat, sukoon, madd, tanween, and shaddah practice</div>
-            <div><span class="check">✓</span> Short surahs and gradual Tajweed foundations</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section paper compact" id="kids-detail">
-      <div class="container split wide-left">
-        <div class="reveal">
-          <p class="eyebrow">Children’s Program</p>
-          <h2>Gentle structure for young learners.</h2>
-          <p class="lead">Children benefit from repetition, encouragement, clear classroom expectations, and lessons that combine Quran, Arabic letters, and Islamic manners.</p>
-          <div class="feature-list">
-            <div><span class="check">✓</span> Arabic letters, sounds, and early reading</div>
-            <div><span class="check">✓</span> Short surahs, repetition, and memorization support</div>
-            <div><span class="check">✓</span> Manners, cleanliness, listening, kindness, and respect</div>
-          </div>
-        </div>
-        <div class="image-frame reveal"><img src="assets/images/arabic-puzzle.webp" alt="Children's Arabic learning puzzle materials"></div>
-      </div>
-    </section>
-
-    <section class="section compact">
-      <div class="container">
-        <div class="section-heading center reveal">
           <p class="eyebrow">Placement</p>
-          <h2>How students enter the right level.</h2>
+          <h2 id="placement-title">Begin at the right level.</h2>
+          <p class="lead">Programs are available online and in person according to teacher availability, level, and fit.</p>
         </div>
-        <div class="pathway">
-          <article class="path-card reveal"><h3>Contact</h3><p>Share the student’s age, level, program interest, and availability.</p></article>
-          <article class="path-card reveal"><h3>Level Check</h3><p>We review reading, recitation, or Arabic needs before recommending a path.</p></article>
-          <article class="path-card reveal"><h3>Recommendation</h3><p>The academy suggests a class or private option based on fit and teacher availability.</p></article>
-          <article class="path-card reveal"><h3>Progress</h3><p>Students continue with correction, practice, review, and gradual advancement.</p></article>
-        </div>
-        <div class="button-row center-actions"><a class="btn btn-primary" href="contact.html">Request Program Placement</a></div>
+        <ol class="placement-steps reveal">
+          <li><strong>Share</strong><span>Age, current level, goals, and availability.</span></li>
+          <li><strong>Review</strong><span>We consider reading, recitation, or Arabic needs.</span></li>
+          <li><strong>Recommend</strong><span>The academy suggests an appropriate starting point.</span></li>
+          <li><strong>Progress</strong><span>Students learn through correction, practice, and review.</span></li>
+        </ol>
       </div>
+      <div class="container button-row"><a class="btn btn-primary" href="contact.html">Request Program Placement</a></div>
     </section>
-
   </main>
   <div id="site-footer" data-include="partials/footer.html"></div>
   <script src="assets/js/main.js"></script>

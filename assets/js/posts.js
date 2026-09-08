@@ -41,6 +41,11 @@ const createPostCard = (post, options = {}) => {
     img.src = post.image;
     img.alt = post.alt || "";
     img.loading = "lazy";
+    img.decoding = "async";
+    if (post.imageWidth && post.imageHeight) {
+      img.width = post.imageWidth;
+      img.height = post.imageHeight;
+    }
     imageLink.append(img);
     article.append(imageLink);
   }
@@ -219,6 +224,12 @@ const renderPostDetailPage = async () => {
       const img = document.createElement("img");
       img.src = post.image;
       img.alt = post.alt || "";
+      img.loading = "lazy";
+      img.decoding = "async";
+      if (post.imageWidth && post.imageHeight) {
+        img.width = post.imageWidth;
+        img.height = post.imageHeight;
+      }
       figure.append(img);
       body.append(figure);
     }

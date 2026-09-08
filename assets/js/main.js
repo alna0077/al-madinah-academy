@@ -1,6 +1,7 @@
 const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/share/1EFWUCXj5z/?mibextid=wwXIfr",
+  facebook: "https://www.facebook.com/almadinahacademy.ca/",
   instagram: "https://www.instagram.com/almadinahacademy.ca",
+  tiktok: "https://www.tiktok.com/@almadinah.quranacademy",
   whatsapp: "https://wa.me/16138084866"
 };
 
@@ -63,6 +64,46 @@ const setActiveNavigation = () => {
     } else {
       link.removeAttribute("aria-current");
     }
+  });
+};
+
+const initThemeControl = () => {
+  const select = document.querySelector("[data-theme-select]");
+  if (!select) return;
+
+  const storageKey = "almadinah-theme";
+  const systemPreference = window.matchMedia("(prefers-color-scheme: dark)");
+  const getSavedPreference = () => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      return ["light", "dark"].includes(saved) ? saved : "system";
+    } catch (error) {
+      return "system";
+    }
+  };
+  const applyTheme = (preference) => {
+    const activeTheme = preference === "system" ? (systemPreference.matches ? "dark" : "light") : preference;
+    document.documentElement.dataset.theme = activeTheme;
+    document.documentElement.dataset.themePreference = preference;
+    document.documentElement.style.colorScheme = activeTheme;
+  };
+
+  select.value = getSavedPreference();
+  applyTheme(select.value);
+
+  select.addEventListener("change", () => {
+    const preference = select.value;
+    try {
+      if (preference === "system") localStorage.removeItem(storageKey);
+      else localStorage.setItem(storageKey, preference);
+    } catch (error) {
+      // The selected theme still applies for the current page if storage is unavailable.
+    }
+    applyTheme(preference);
+  });
+
+  systemPreference.addEventListener?.("change", () => {
+    if (select.value === "system") applyTheme("system");
   });
 };
 
@@ -347,6 +388,7 @@ const initSite = async () => {
   applySocialLinks();
   applyContactDetails();
   setActiveNavigation();
+  initThemeControl();
   initNavigation();
   initRevealAnimations();
   initEnrollmentForm();

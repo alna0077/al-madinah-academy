@@ -8,83 +8,126 @@
   <link rel="icon" type="image/png" href="assets/logos/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-page="student-life">
 
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header" data-include="partials/header.html"></div>
-  <main id="main-content" tabindex="-1">
-
-    <section class="page-hero" style="--page-image: url('../images/hero-learning-room.webp')">
-      <div class="container">
-        <p class="eyebrow">Student Life</p>
-        <h1>A learning environment with beauty, order, and care.</h1>
-        <p class="lead">A look at the spaces, materials, classroom rhythm, and family support behind the academy experience.</p>
+  <main id="main-content" tabindex="-1" class="student-life-v2">
+    <section class="inner-hero student-life-hero" aria-labelledby="student-life-title">
+      <div class="container inner-hero-grid inner-hero-grid-wide">
+        <div class="inner-hero-copy reveal">
+          <p class="eyebrow">Student Life</p>
+          <h1 id="student-life-title">A calm place for attentive learning.</h1>
+          <p class="lead">The academy environment is prepared for focused Qur’an, Arabic, and Islamic Studies learning—with order, respect, and care for each student’s next step.</p>
+        </div>
+        <figure class="inner-hero-media student-life-hero-media reveal">
+          <img src="assets/images/hero-learning-room.webp" alt="Al-Madinah Academy classroom arranged for a lesson" width="1600" height="900" decoding="async" fetchpriority="high">
+          <figcaption>In-person learning in East Ottawa</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="gallery-grid">
-          <figure class="gallery-item wide reveal"><img src="assets/images/hero-learning-room.webp" alt="Modern Islamic learning room"><figcaption class="gallery-caption">Modern learning room</figcaption></figure>
-          <figure class="gallery-item tall reveal"><img src="assets/images/whiteboard-recitation.webp" alt="Quran recitation whiteboard lesson"><figcaption class="gallery-caption">Recitation lesson</figcaption></figure>
-          <figure class="gallery-item reveal"><img src="assets/images/arabic-magnets.webp" alt="Arabic letters and children's books"><figcaption class="gallery-caption">Arabic foundations</figcaption></figure>
-          <figure class="gallery-item reveal"><img src="assets/images/arabic-puzzle.webp" alt="Arabic puzzle learning materials"><figcaption class="gallery-caption">Kids resources</figcaption></figure>
-          <figure class="gallery-item reveal"><img src="assets/images/learning-materials.webp" alt="Quran and Arabic learning materials"><figcaption class="gallery-caption">Structured materials</figcaption></figure>
-          <figure class="gallery-item wide reveal"><img src="assets/images/classroom-tv.webp" alt="Classroom with screen and board"><figcaption class="gallery-caption">Classroom setup</figcaption></figure>
-          <figure class="gallery-item reveal"><img src="assets/images/study-table-real.webp" alt="Study table with notebook and books"><figcaption class="gallery-caption">Student workspace</figcaption></figure>
-          <figure class="gallery-item reveal"><img src="assets/images/books-dessert.webp" alt="Islamic books arranged on a table"><figcaption class="gallery-caption">Islamic study materials</figcaption></figure>
+    <section class="section life-atmosphere" aria-labelledby="atmosphere-title">
+      <div class="container editorial-split">
+        <div class="editorial-heading reveal">
+          <p class="eyebrow">Learning atmosphere</p>
+          <h2 id="atmosphere-title">Calm and respectful, with a clear purpose.</h2>
+        </div>
+        <div class="editorial-copy reveal">
+          <p class="lead">A settled environment helps students listen carefully, practise without embarrassment, and receive correction with confidence.</p>
+          <p>Classes bring together instruction, recitation, discussion, writing, repetition, and review. Adab shapes how students enter the learning space, engage with teachers and classmates, and carry knowledge into daily conduct.</p>
         </div>
       </div>
     </section>
 
-    <section class="section paper compact">
-      <div class="container">
-        <div class="section-heading center reveal">
-          <p class="eyebrow">Class Rhythm</p>
-          <h2>Simple rhythm, steady results.</h2>
-          <p class="lead">A predictable lesson flow helps students feel settled while keeping the class purposeful.</p>
-        </div>
-        <div class="rhythm-grid">
-          <div class="rhythm-step reveal"><strong>01</strong><h3>Settle</h3><p>Students begin with focus, respect, and clear expectations.</p></div>
-          <div class="rhythm-step reveal"><strong>02</strong><h3>Review</h3><p>Previous material is revisited before new learning begins.</p></div>
-          <div class="rhythm-step reveal"><strong>03</strong><h3>Learn</h3><p>New concepts are taught in manageable steps.</p></div>
-          <div class="rhythm-step reveal"><strong>04</strong><h3>Practice</h3><p>Students repeat, recite, write, answer, and receive correction.</p></div>
-          <div class="rhythm-step reveal"><strong>05</strong><h3>Anchor</h3><p>The lesson closes with a clear next step for continued progress.</p></div>
+    <section class="section surface-section lesson-evidence" aria-labelledby="lesson-evidence-title">
+      <div class="container lesson-evidence-grid">
+        <figure class="lesson-primary-image reveal">
+          <img src="assets/images/whiteboard-recitation.webp" alt="Qur’an recitation lesson written on the classroom whiteboard" width="1050" height="1400" loading="lazy" decoding="async">
+          <figcaption>Recitation instruction made visible and repeatable.</figcaption>
+        </figure>
+        <div class="lesson-evidence-copy reveal">
+          <p class="eyebrow">Inside a lesson</p>
+          <h2 id="lesson-evidence-title">Correction becomes a path forward.</h2>
+          <p class="lead">Students see, hear, repeat, and apply new material in manageable steps.</p>
+          <ol class="lesson-rhythm">
+            <li><span>Settle</span><p>Begin with focus, respect, and a clear expectation.</p></li>
+            <li><span>Review</span><p>Return to prior material before adding something new.</p></li>
+            <li><span>Learn</span><p>Study a sound, rule, word, or concept with guidance.</p></li>
+            <li><span>Practise</span><p>Recite, read, write, answer, and receive correction.</p></li>
+            <li><span>Anchor</span><p>Leave with a specific next step for continued progress.</p></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split wide-left">
+    <section class="section materials-story" aria-labelledby="materials-title">
+      <div class="container materials-grid">
+        <div class="materials-copy reveal">
+          <p class="eyebrow">Learning materials</p>
+          <h2 id="materials-title">Tools chosen for the stage of learning.</h2>
+          <p class="lead">Qur’an passages, Arabic letters, books, puzzles, and written examples each serve a specific teaching purpose.</p>
+          <p>Young learners may work with tactile Arabic materials and repetition. Developing readers move through sounds, joined letters, words, and sentences. Qur’an students use visible examples and direct teacher feedback to strengthen accuracy and fluency.</p>
+        </div>
+        <div class="material-details" aria-label="Examples of academy learning materials">
+          <figure class="material-detail material-detail-tall reveal">
+            <img src="assets/images/arabic-magnets.webp" alt="Arabic letter magnets and children’s learning books" width="1050" height="1400" loading="lazy" decoding="async">
+            <figcaption>Arabic foundations</figcaption>
+          </figure>
+          <figure class="material-detail reveal">
+            <img src="assets/images/arabic-puzzle.webp" alt="Arabic letter puzzle used by young learners" width="1400" height="1050" loading="lazy" decoding="async">
+            <figcaption>Hands-on practice</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section surface-section family-learning" aria-labelledby="family-title">
+      <div class="container family-learning-grid">
+        <figure class="family-learning-media reveal">
+          <img src="assets/images/study-table-real.webp" alt="Study table prepared with books and writing materials" width="1050" height="1400" loading="lazy" decoding="async">
+        </figure>
+        <div class="family-learning-copy reveal">
+          <p class="eyebrow">For students &amp; families</p>
+          <h2 id="family-title">A learning path families can understand.</h2>
+          <p class="lead">Parents stay connected to the student’s starting point, goals, and next steps through practical communication.</p>
+          <ul class="plain-feature-list">
+            <li>Placement reflects the student’s current reading, recitation, or Arabic level.</li>
+            <li>Children receive age-appropriate expectations and gentle accountability.</li>
+            <li>Private support may be considered when a student needs a more focused plan.</li>
+            <li>Online learning is available alongside the academy’s Ottawa in-person environment.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section student-life-credibility" aria-labelledby="local-life-title">
+      <div class="container local-life-grid">
         <div class="reveal">
-          <p class="eyebrow">For Families</p>
-          <h2>Parents stay connected to the learning path.</h2>
-          <p class="lead">The academy works best when parents understand the student’s level, goals, and next step. Communication stays simple and practical.</p>
-          <div class="feature-list">
-            <div><span class="check">✓</span> Placement is based on the student’s actual starting point.</div>
-            <div><span class="check">✓</span> Children’s learning includes age-appropriate expectations and gentle accountability.</div>
-            <div><span class="check">✓</span> Families can ask about private support when a student needs a focused plan.</div>
-          </div>
+          <p class="eyebrow">Ottawa &amp; online</p>
+          <h2 id="local-life-title">A real classroom, with learning that can continue beyond it.</h2>
         </div>
-        <div class="image-frame reveal"><img src="assets/images/study-table.webp" alt="Study table with Quran and learning materials"></div>
-      </div>
-    </section>
-
-    <section class="section quote-band compact">
-      <div class="container quote-inner">
-        <div class="quote-mark" aria-hidden="true">سكينة</div>
         <div class="reveal">
-          <p class="eyebrow">Atmosphere</p>
-          <h2>A calm space makes serious learning easier.</h2>
-          <p class="lead">The academy’s visual identity, classroom setup, and materials are intentionally refined so students feel that Islamic learning deserves excellence.</p>
-          <div class="button-row"><a class="btn btn-gold" href="contact.html">Visit Enrollment</a></div>
+          <p>The in-person setting gives students a grounded, family-oriented academy experience in East Ottawa. Online options extend access while keeping the same emphasis on preparation, attentive teaching, review, and adab.</p>
+          <p class="institution-line">Registered in Ontario <span aria-hidden="true">·</span> Based in Ottawa <span aria-hidden="true">·</span> Online &amp; In-Person</p>
         </div>
       </div>
     </section>
 
+    <section class="section page-final-cta" aria-labelledby="student-life-cta-title">
+      <div class="container page-final-cta-inner reveal">
+        <div>
+          <p class="eyebrow">Find a starting point</p>
+          <h2 id="student-life-cta-title">Tell us about the learner.</h2>
+          <p>Share the student’s age, level, goals, and preferred format so the academy can recommend an appropriate path.</p>
+        </div>
+        <div class="button-row"><a class="btn btn-primary" href="contact.html">Request Placement</a></div>
+      </div>
+    </section>
   </main>
   <div id="site-footer" data-include="partials/footer.html"></div>
   <script src="assets/js/main.js"></script>

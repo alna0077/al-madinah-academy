@@ -9,7 +9,8 @@
   <link rel="icon" type="image/png" href="assets/logos/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <!-- Edit data-page so active navigation can be set when a matching nav item exists. -->
@@ -19,8 +20,8 @@
   <div id="site-header" data-include="partials/header.html"></div>
   <main id="main-content" tabindex="-1">
 
-    <!-- Page hero: edit title, text, eyebrow, and optional image. Use assets/images/... with ../images/... inside this CSS variable. -->
-    <section class="page-hero" style="--page-image: url('../images/classroom-tv.webp')">
+    <!-- Page hero: edit title, text, eyebrow, and optional image. -->
+    <section class="page-hero" style="--page-image: url('assets/images/classroom-tv.webp')">
       <div class="container">
         <p class="eyebrow">Page Eyebrow</p>
         <h1>Page hero title goes here.</h1>
@@ -37,7 +38,7 @@
           <p class="lead">Use this area for the main page explanation or summary.</p>
         </div>
         <div class="image-frame reveal">
-          <img src="assets/images/quran-whiteboard.webp" alt="Describe this page image clearly">
+          <img src="assets/images/quran-whiteboard.webp" alt="Describe this page image clearly" width="1050" height="1400" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
