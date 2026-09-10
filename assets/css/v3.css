@@ -14,7 +14,6 @@
   --v3-container: 1240px;
   --v3-radius-sm: 6px;
   --v3-radius-md: 10px;
-  --v3-radius-lg: 16px;
   --v3-section-space: clamp(4.5rem, 8vw, 7.5rem);
   --v3-transition: 180ms ease;
 }
@@ -221,7 +220,6 @@ html[data-theme="dark"] {
 }
 
 @media (max-width: 840px) {
-  .site-header .header-panel { top: 88px; }
   .v3-section-heading-split,
   .v3-hero-layout,
   .v3-programs-layout,
