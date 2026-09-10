@@ -1,7 +1,8 @@
 const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/share/1EFWUCXj5z/?mibextid=wwXIfr",
+  facebook: "https://www.facebook.com/almadinahacademy.ca/",
   instagram: "https://www.instagram.com/almadinahacademy.ca",
-  whatsapp: "https://wa.me/16138084866"
+  whatsapp: "https://wa.me/16138084866",
+  tiktok: "https://www.tiktok.com/@almadinah.quranacademy"
 };
 
 const CONTACT_PHONE = {
@@ -91,6 +92,43 @@ const initNavigation = () => {
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
+  });
+};
+
+const initThemeToggle = () => {
+  const toggle = document.querySelector("[data-theme-toggle]");
+  if (!toggle) return;
+
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const applyTheme = (theme, preference = theme) => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.themePreference = preference;
+    document.documentElement.style.colorScheme = theme;
+    const next = theme === "dark" ? "light" : "dark";
+    toggle.setAttribute("aria-label", `Switch to ${next} colour theme`);
+    toggle.setAttribute("title", `Switch to ${next} colour theme`);
+  };
+
+  applyTheme(document.documentElement.dataset.theme || (media.matches ? "dark" : "light"), document.documentElement.dataset.themePreference || "system");
+  toggle.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    try { localStorage.setItem("almadinah-theme", nextTheme); } catch (error) { /* Apply for this page even if storage is unavailable. */ }
+    applyTheme(nextTheme);
+  });
+  media.addEventListener("change", (event) => {
+    if (document.documentElement.dataset.themePreference === "system") applyTheme(event.matches ? "dark" : "light", "system");
+  });
+};
+
+const initMotionAwareMedia = () => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  document.querySelectorAll("video[autoplay]").forEach((video) => {
+    if (reducedMotion.matches) {
+      video.pause();
+      video.removeAttribute("autoplay");
+    } else {
+      video.play().catch(() => {});
+    }
   });
 };
 
@@ -348,6 +386,8 @@ const initSite = async () => {
   applyContactDetails();
   setActiveNavigation();
   initNavigation();
+  initThemeToggle();
+  initMotionAwareMedia();
   initRevealAnimations();
   initEnrollmentForm();
   initScrollTopButton();

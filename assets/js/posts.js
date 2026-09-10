@@ -40,6 +40,10 @@ const createPostCard = (post, options = {}) => {
     const img = document.createElement("img");
     img.src = post.image;
     img.alt = post.alt || "";
+    if (post.imageWidth && post.imageHeight) {
+      img.width = post.imageWidth;
+      img.height = post.imageHeight;
+    }
     img.loading = "lazy";
     imageLink.append(img);
     article.append(imageLink);
@@ -113,16 +117,18 @@ const renderListingPage = async () => {
 
   try {
     const posts = await fetchPosts();
+    const featured = posts.find((post) => post.featured) || posts[0];
+    const listingPosts = featured ? posts.filter((post) => post.slug !== featured.slug) : posts;
     let activeCategory = "All";
     const applyFilter = (category) => {
       activeCategory = category;
-      renderCategoryFilters(posts, activeCategory, applyFilter);
-      renderPostsList(posts, activeCategory);
+      renderCategoryFilters(listingPosts, activeCategory, applyFilter);
+      renderPostsList(listingPosts, activeCategory);
     };
 
     renderFeaturedPost(posts);
-    renderPostsList(posts, activeCategory);
-    renderCategoryFilters(posts, activeCategory, applyFilter);
+    renderPostsList(listingPosts, activeCategory);
+    renderCategoryFilters(listingPosts, activeCategory, applyFilter);
   } catch (error) {
     console.error(error);
     list.replaceChildren(createElement("p", "empty-state", "Posts could not be loaded. Please use the local server or check data/posts.json."));
@@ -219,6 +225,10 @@ const renderPostDetailPage = async () => {
       const img = document.createElement("img");
       img.src = post.image;
       img.alt = post.alt || "";
+      if (post.imageWidth && post.imageHeight) {
+        img.width = post.imageWidth;
+        img.height = post.imageHeight;
+      }
       figure.append(img);
       body.append(figure);
     }
