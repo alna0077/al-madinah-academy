@@ -33,19 +33,16 @@ const FOOTER_FALLBACK_HTML = `
     <nav class="footer-column" aria-labelledby="footer-academy-title">
       <h2 id="footer-academy-title">Academy</h2>
       <a href="about.html">About the Academy</a>
+      <a href="about.html#teachers">Educators</a>
       <a href="student-life.html">Student Life</a>
       <a href="news.html">News</a>
       <a href="contact.html">Contact</a>
     </nav>
     <section class="footer-column footer-connect" aria-labelledby="footer-connect-title">
       <h2 id="footer-connect-title">Connect</h2>
-      <h3>Contact</h3>
       <div class="footer-links">
         <a href="tel:+16138084866" data-phone-link aria-label="Call Al-Madinah Academy at 1 613 808 4866"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 3.8 9 8.9 6.9 11c1.1 2.6 3.2 4.7 5.8 5.8l2.1-2.1 5.1 2.4v2.4c0 .8-.7 1.5-1.5 1.5C9.9 21 3 14.1 3 5.6c0-.8.7-1.5 1.5-1.5h2.1Z"/></svg><span data-phone-display>1(613) 808-4866</span></a>
         <a href="https://wa.me/16138084866" data-social="whatsapp" aria-label="Message Al-Madinah Academy on WhatsApp" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.6 11.6a8.6 8.6 0 0 1-12.7 7.5L3 20.6l1.6-4.7A8.6 8.6 0 1 1 20.6 11.6Z"/><path d="M8.5 7.6c.3-.4.6-.4.9-.1l1.1 2.2c.1.3 0 .5-.2.8l-.7.8c.8 1.6 2 2.8 3.6 3.5l.8-.9c.2-.2.5-.3.8-.2l2.1 1c.3.2.4.4.3.8-.2 1.1-1.2 1.8-2.3 1.8-3.9-.2-7.8-3.8-8.1-7.8 0-.8.7-1.6 1.7-1.9Z"/></svg><span>WhatsApp</span></a>
-      </div>
-      <h3>Follow</h3>
-      <div class="footer-links footer-social-links">
         <a href="https://www.facebook.com/almadinahacademy.ca/" data-social="facebook" aria-label="Al-Madinah Academy on Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 21v-8h2.8l.4-3H14V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.6-.1-1.3-.2-2-.2-2.8 0-4.6 1.7-4.6 4.7V10H8v3h2.4v8H14Z"/></svg><span>Facebook</span></a>
         <a href="https://www.instagram.com/almadinahacademy.ca" data-social="instagram" aria-label="Al-Madinah Academy on Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="12" cy="12" r="4"/><path d="M17.6 6.4h.01"/></svg><span>Instagram</span></a>
         <a href="https://www.tiktok.com/@almadinah.quranacademy" data-social="tiktok" aria-label="Al-Madinah Academy on TikTok" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.5 4v10.4a4.1 4.1 0 1 1-3.2-4V14a1.7 1.7 0 1 0 .9 1.5V4h2.3c.4 2.1 1.8 3.5 3.8 3.9v2.4A7.2 7.2 0 0 1 14.5 8"/></svg><span>TikTok</span></a>
@@ -155,7 +152,7 @@ const initThemeToggle = () => {
     document.documentElement.style.colorScheme = theme;
     const next = theme === "dark" ? "light" : "dark";
     toggle.setAttribute("aria-label", `Switch to ${next} colour theme`);
-    toggle.setAttribute("title", `Switch to ${next} colour theme`);
+    toggle.removeAttribute("title");
   };
 
   applyTheme(document.documentElement.dataset.theme || (media.matches ? "dark" : "light"), document.documentElement.dataset.themePreference || "system");
