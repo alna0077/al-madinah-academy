@@ -251,6 +251,8 @@ html[data-theme="dark"] .hybrid-v4 .v4-final-cta { background: #164D78; }
 .hybrid-v4 .post-excerpt,
 .hybrid-v4 .post-content p,
 .hybrid-v4 .post-content li { color: var(--v4-muted); }
+html[data-theme="dark"] .contact-v4 .contact-methods > a:not([data-social="whatsapp"]) > span,
+html[data-theme="dark"] .contact-v4 .contact-methods > div > span { color: #F1D47A; }
 
 /* Live-site footer composition, scoped so page typography cannot leak into it. */
 .site-footer {
