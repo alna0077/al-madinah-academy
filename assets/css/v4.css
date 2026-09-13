@@ -367,6 +367,8 @@ html[data-theme="dark"] .hybrid-v4 .v4-final-cta { background: #164D78; }
   stroke-linejoin: round;
 }
 .site-footer .footer-contact-links a[data-phone-link] svg { fill: currentColor; stroke: none; }
+.site-footer .footer-contact-links .brand-icon-whatsapp,
+.site-footer .footer-contact-links .brand-icon-whatsapp path { fill: currentColor; stroke: none; }
 .site-footer .social-links a:focus-visible {
   outline: 3px solid rgba(212, 160, 23, 0.52);
   outline-offset: 3px;
