@@ -320,6 +320,11 @@ html[data-theme="dark"] .contact-v4 .contact-methods > div > span { color: #F1D4
   align-items: start;
   padding-block: 0;
 }
+@media (min-width: 901px) {
+  .site-footer .footer-main.footer-grid > .footer-column {
+    padding-inline-start: clamp(24px, 2vw, 32px);
+  }
+}
 .site-footer .footer-logo {
   display: inline-flex;
   width: fit-content;
