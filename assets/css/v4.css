@@ -78,6 +78,24 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .theme-icon-sun { display: none; }
 html[data-theme="dark"] .theme-icon-moon { display: block; }
 
+@media (min-width: 1121px) {
+  .site-header .header-panel { gap: clamp(0.75rem, 1vw, 1rem); }
+  .site-header .header-actions { gap: 7px; }
+  .site-header .theme-toggle {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    border-color: color-mix(in srgb, var(--v4-border) 82%, transparent);
+    background: color-mix(in srgb, var(--v4-surface) 72%, transparent);
+  }
+  .site-header .theme-toggle svg { width: 18px; height: 18px; }
+  .site-header .header-cta {
+    min-height: 40px;
+    padding-inline: 14px;
+    box-shadow: 0 9px 20px rgba(18, 58, 99, 0.16);
+  }
+}
+
 /* Image-led live hero, updated with authentic academy photography. */
 .v4-hero { min-height: clamp(590px, 72svh, 760px); }
 .v4-hero::before { background: linear-gradient(90deg, rgba(7, 26, 45, 0.96) 0%, rgba(7, 26, 45, 0.86) 40%, rgba(7, 26, 45, 0.2) 68%, rgba(7, 26, 45, 0.08) 100%), var(--hero-image); background-position: center 48%; background-repeat: no-repeat; background-size: cover; }
