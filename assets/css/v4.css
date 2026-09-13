@@ -17,15 +17,15 @@
 
 html[data-theme="dark"] {
   --v4-bg: #0D1B3D;
-  --v4-surface: #12264A;
-  --v4-paper: #172F58;
+  --v4-surface: #13284A;
+  --v4-paper: #18355B;
   --v4-heading: #FBF6EE;
-  --v4-text: #D7DFE8;
-  --v4-muted: #A9BDD4;
-  --v4-primary: #9ABCE2;
-  --v4-blue: #B7D1EE;
-  --v4-soft: #27466F;
-  --v4-border: rgba(215, 223, 232, 0.18);
+  --v4-text: rgba(251, 246, 238, 0.88);
+  --v4-muted: #D7DFE8;
+  --v4-primary: #6C8FB6;
+  --v4-blue: #D7DFE8;
+  --v4-soft: #18355B;
+  --v4-border: #2A4B70;
 }
 
 html[data-theme="dark"] body {
@@ -269,6 +269,25 @@ html[data-theme="dark"] .hybrid-v4 .v4-final-cta { background: #164D78; }
 .hybrid-v4 .post-excerpt,
 .hybrid-v4 .post-content p,
 .hybrid-v4 .post-content li { color: var(--v4-muted); }
+html[data-theme="dark"] .hybrid-v4 .card p,
+html[data-theme="dark"] .hybrid-v4 .program-card p,
+html[data-theme="dark"] .hybrid-v4 .teacher-card p,
+html[data-theme="dark"] .hybrid-v4 .path-card p { color: var(--v4-muted); }
+html[data-theme="dark"] .hybrid-v4 .post-category { color: var(--v4-muted); }
+html[data-theme="dark"] .hybrid-v4 input::placeholder,
+html[data-theme="dark"] .hybrid-v4 textarea::placeholder {
+  color: color-mix(in srgb, var(--v4-muted) 78%, transparent);
+  opacity: 1;
+}
+html[data-theme="dark"] .hybrid-v4 input:focus,
+html[data-theme="dark"] .hybrid-v4 select:focus,
+html[data-theme="dark"] .hybrid-v4 textarea:focus {
+  border-color: #6C8FB6;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #6C8FB6 24%, transparent);
+}
+html[data-theme="dark"] .hybrid-v4 input:focus-visible,
+html[data-theme="dark"] .hybrid-v4 select:focus-visible,
+html[data-theme="dark"] .hybrid-v4 textarea:focus-visible { outline-color: #6C8FB6; }
 html[data-theme="dark"] .contact-v4 .contact-methods > a:not([data-social="whatsapp"]) > span,
 html[data-theme="dark"] .contact-v4 .contact-methods > div > span { color: #F1D47A; }
 
@@ -413,7 +432,7 @@ html[data-theme="dark"] .site-footer {
 }
 html[data-theme="dark"] .site-footer::before { opacity: 0.1; }
 html[data-theme="dark"] .site-footer .footer-brand p,
-html[data-theme="dark"] .site-footer .footer-bottom p { color: #A9BDD4; }
+html[data-theme="dark"] .site-footer .footer-bottom p { color: #D7DFE8; }
 html[data-theme="dark"] .site-footer .footer-column > h2 { color: #FBF6EE; }
 html[data-theme="dark"] .site-footer .footer-column > a,
 html[data-theme="dark"] .site-footer .footer-contact-links a { color: #D7DFE8; }
